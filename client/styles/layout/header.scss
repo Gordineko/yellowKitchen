@@ -1,0 +1,46 @@
+.header {
+  background: #ffffff;
+  z-index: 1000;
+  width: 100%;
+  position: fixed;
+  color: rgb(144, 147, 166);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 20px 0;
+  border-bottom: 1px solid rgb(212, 215, 230);
+  &__logo {
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  &__logo:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    transform: scale(1.04) rotate(4deg);
+  }
+  &__container {
+    max-width: 1255px;
+    padding: 0 15px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+
+    &__login,
+    &__cart,
+    &__burger {
+      margin-right: 50px;
+      display: flex;
+      align-items: flex-start;
+    }
+    &__burger {
+      margin-right: 0;
+    }
+  }
+}
+.logo {
+  cursor: pointer;
+  background-color: aliceblue;
+}
