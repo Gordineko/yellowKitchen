@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Head from "next/head";
 import Image from "next/image";
 import Header from "../../components/layout/Header/Header";
 import Footer from "../../components/layout/Footer/Footer";
@@ -35,9 +36,22 @@ export async function getServerSideProps(context) {
 }
 
 const product = ({ dish }) => {
-  console.log(dish);
   return (
     <>
+      <Head>
+        <title>{dish.name} — Заказать с доставкой | Ваш ресторан</title>
+        <meta name="description" content={dish.description} />
+        <meta
+          name="keywords"
+          content={` ${dish.name}, доставка еды, ресторан`}
+        />
+        <meta property="og:title" content={dish.name} />
+        <meta property="og:description" content={dish.description} />
+        <meta property="og:image" content={dish.image} />
+
+        <meta property="og:type" content="product" />
+      </Head>
+      ;
       <Header style={{ height: "10vh" }} />
       <main className="main" style={{ height: "55vh" }}>
         <div className="container">
