@@ -5,29 +5,29 @@ import Header from "../../components/layout/Header/Header";
 import Footer from "../../components/layout/Footer/Footer";
 
 export async function getServerSideProps(context) {
-  const { name } = context.query; // Извлекаем параметр 'id' из query
+  const { name } = context.query;
 
   if (!name) {
     return {
-      notFound: true, // Если id отсутствует, возвращаем ошибку 404
+      notFound: true,
     };
   }
 
-  // Пример запроса к API или базе данных, чтобы получить список всех товаров
+  
   const res = await fetch("http://localhost:3001/dishes");
-  const dishes = await res.json(); // Получаем все блюда
+  const dishes = await res.json();
 
-  // Фильтруем товар по id
-  const dish = dishes.find((d) => d.name === name); // Предполагаем, что у каждого блюда есть свой id
+  
+  const dish = dishes.find((d) => d.name === name);
 
-  // Если товар не найден, возвращаем ошибку 404
+ 
   if (!dish) {
     return {
       notFound: true,
     };
   }
 
-  // Возвращаем данные в компонент страницы
+  
   return {
     props: {
       dish,
@@ -51,7 +51,6 @@ const product = ({ dish }) => {
 
         <meta property="og:type" content="product" />
       </Head>
-      ;
       <Header style={{ height: "10vh" }} />
       <main className="main" style={{ height: "55vh" }}>
         <div className="container">
