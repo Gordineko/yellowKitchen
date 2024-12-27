@@ -1,12 +1,13 @@
 import Image from "next/image";
 import deli from "../../../assets/image/Photo.png";
 import ProdItem from "../ProdItem/ProdItem";
+
 import { useState } from "react";
-const Products = ({ dishes, navigate }) => {
+const Products = ({ dishes, navigate, ref, productsInView }) => {
   const [renderCount, setRenderCount] = useState(4);
 
   return (
-    <div className="products">
+    <div ref={ref} className={`products ${productsInView ? "visible" : ""}`}>
       <div className="products__content">
         <h2>Restaurant Menu</h2>
         <button

@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     padding: 55px 0 0 0;
     margin-bottom: 55px;
-    height: 350px;
+    height: 390px;
     overflow: hidden;
     transition: 1s;
     &.open {
@@ -70,6 +70,21 @@
     font-weight: 800;
     color: rgb(78, 78, 78);
   }
+  &__buy {
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: inherit;
+    border: 1px solid rgb(188, 190, 48);
+    color: rgb(188, 190, 48);
+    width: 100%;
+    padding: 10px 0;
+    transition: 0.4s;
+  }
+  &:hover &__buy {
+    transition: 0.4s;
+    color: rgb(232, 235, 19);
+    border: 1px solid rgb(232, 235, 19);
+  }
   &__price {
     transition: 0.4s;
     font-size: 20px;
@@ -84,6 +99,7 @@
     font-size: 12px;
     font-weight: 800;
     color: rgb(155, 154, 154);
+    margin-bottom: 10px;
   }
 }
 // .product__item::after {

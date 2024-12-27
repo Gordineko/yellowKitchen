@@ -1,6 +1,6 @@
-const Info = () => {
+const Info = ({ ref, infoInView }) => {
   return (
-    <div className="info">
+    <div ref={ref} className={`info ${infoInView ? "visible" : ""}`}>
       <ul className="info__list">
         <li className="info__list__item">
           <div className="info__list__item__content">

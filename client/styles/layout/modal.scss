@@ -132,3 +132,58 @@
   top: -30px;
   left: 330px;
 }
+
+.modal__curt {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  color: rgb(63, 66, 85);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 20px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+  h2 {
+    margin-bottom: 40px;
+    font-size: 28px;
+    font-weight: 900;
+  }
+
+  h3 {
+  }
+  p {
+    color: rgb(255, 225, 69);
+  }
+  button {
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: inherit;
+    border: 1px solid rgb(188, 190, 48);
+    color: rgb(188, 190, 48);
+    width: 100%;
+    padding: 10px 0;
+    transition: 0.4s;
+  }
+  &__list {
+    &__item {
+      margin-bottom: 20px;
+      justify-content: space-between;
+      display: flex;
+    }
+  }
+}
+.modal__curt::after {
+  content: "";
+  height: 130px;
+  width: 30px;
+  background: rgb(255, 225, 69);
+  position: absolute;
+  top: -30px;
+  left: 20px;
+  transform: rotateZ(45deg);
+}
+
+.modal__curt.open {
+}

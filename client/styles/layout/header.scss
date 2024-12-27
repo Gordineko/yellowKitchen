@@ -49,6 +49,7 @@
     }
   }
 }
+
 .logo {
   cursor: pointer;
   background-color: aliceblue;
@@ -139,10 +140,10 @@
 
 .burger__menu {
   z-index: 200;
-  transform: translateX(300px);
+  transform: translateY(-1000px);
   transition: 0.4s;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 93.5px;
   background-color: white;
@@ -172,5 +173,5 @@
 }
 .burger__menu.open {
   transition: 0.4s;
-  transform: translateX(0);
+  transform: translateY(0);
 }

@@ -7,6 +7,7 @@ import Products from "../components/layout/Main/Products";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 export async function getServerSideProps() {
   const res = await fetch("http://localhost:3001/dishes");
@@ -20,6 +21,21 @@ export async function getServerSideProps() {
 }
 
 const HomePage = ({ dishes }) => {
+  const { ref: productsRef, inView: productsInView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  const { ref: formRef, inView: formInView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  const { ref: infoRef, inView: infoInView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
   const [isLoading, setIsLoading] = useState(true); // Начальное состояние — лоадинг
   const router = useRouter();
 
@@ -39,7 +55,7 @@ const HomePage = ({ dishes }) => {
     // Экран лоадинга
     return (
       <div className="loader__container">
-        <span className="loader">YellowKitchen</span>
+        <span className="loader">yellowkitchen</span>
       </div>
     );
   }
@@ -84,11 +100,16 @@ const HomePage = ({ dishes }) => {
             </div>
           </div>
 
-          <Products dishes={dishes} navigate={navigate} />
+          <Products
+            ref={productsRef}
+            productsInView={productsInView}
+            dishes={dishes}
+            navigate={navigate}
+          />
         </div>
-        <Form />
+        <Form ref={formRef} formInView={formInView} />
         <div className="container">
-          <Info />
+          <Info ref={infoRef} infoInView={infoInView} />
         </div>
       </main>
       <Footer />

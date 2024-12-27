@@ -1,8 +1,9 @@
 import Image from "next/image";
 import map from "../../../assets/image/map.png";
-const Form = () => {
+
+const Form = ({ ref, formInView }) => {
   return (
-    <div className="inquiry">
+    <div ref={ref} className={`inquiry ${formInView ? "visible" : ""}`}>
       <div className="inquiry__container">
         <div className="inquiry__content">
           <div className="inquiry__content__txt">
